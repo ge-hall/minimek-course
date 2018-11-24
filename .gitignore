@@ -11,6 +11,8 @@
 # production
 /build
 
+# offline-mirror
+/offline-mirror
 # misc
 .DS_Store
 .env.local
