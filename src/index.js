@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
-
-import App from './App';
 import './index.css';
 
 import configureStore from "./store/configureStore";
@@ -14,7 +12,7 @@ const rootEl = document.getElementById('root');
 let render = () => {
   // Dynamically import our main App component, and render it
   // eslint-disable-next-line
-  const App = require("./App").default; // eslint-disable-line
+  const App = require("./App").default; 
 
   ReactDOM.render(
     <Provider store={store}>
