@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
-import {Header, Container, Menu} from "semantic-ui-react";
-import './App.css';
+import { Header, Container } from "semantic-ui-react";
+import 'App.css';
 
-import SampleComponent from "./SampleComponent";
+import TabBarContainer from "features/tabs/TabBarContainer";
+import UnitInfo from 'features/unitInfo/UnitInfo';
+import Pilots from "features/pilots/Pilots";
+import Mechs from "features/mechs/Mechs";
+import UnitOrganization from "features/unitOrganization/UnitOrganization";
+//const Pilots = () => <div>Pilots content</div>;
+//const Mechs = () => <div>Mechs content</div>;
+//const UnitOrganization = () => <div>Unit Organization content</div>;
 
 class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <Header inverted as="h1">Project Mini-Mek</Header>
-                </div>
-                <Container>
-                  <Menu tabuler size="massive">
-                    <Menu.Item name="unitInfo" active={true}>Unit Info</Menu.Item>
-                    <Menu.Item name="pilots" active={false}>Pilots</Menu.Item>
-                    <Menu.Item name="mechs" active={false}>Mechs</Menu.Item>
-                    <Menu.Item name="unitOrganisation" active={false}>Unit Organisation</Menu.Item>
 
-                  </Menu>
-                </Container>
-                
-            </div>
-        );
-    }
+  render() {
+    const tabs = [
+      { name: "unitInfo", label: "Unit Info", component: UnitInfo, },
+      { name: "pilots", label: "Pilots", component: Pilots, },
+      { name: "mechs", label: "Mechs", component: Mechs, },
+      { name: "unitOrganization", label: "Unit Organization", component: UnitOrganization }
+    ];
+    return (
+      <div className="App">
+        <div className="App-header">
+          <Header inverted as="h1">Project Mini-Mek</Header>
+        </div>
+        <Container>
+          <TabBarContainer tabs={tabs} size="massive" />
+        </Container>
+      </div>
+    );
+  }
 }
 
 export default App;
